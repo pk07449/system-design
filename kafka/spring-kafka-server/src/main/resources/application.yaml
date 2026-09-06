@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: spring-kafka-server
+  kafka:
+    # Server Address (The PLAINTEXT_HOST port mapped in your container/run command)
+    bootstrap-servers: localhost:9092
+
+    # Client-Side Producer Configuration
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all # Ensures data safety by waiting for full broker acknowledgement
+

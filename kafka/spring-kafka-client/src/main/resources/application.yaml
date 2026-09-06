@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: spring-kafka-client
+  kafka:
+    # Server Address (The PLAINTEXT_HOST port mapped in your container/run command)
+#    bootstrap-servers: localhost:9092
+
+    # Client-Side Producer Configuration
+#    producer:
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      acks: all # Ensures data safety by waiting for full broker acknowledgement
+
+#     Client-Side Consumer Configuration
+    consumer:
+      group-id: my-spring-group
+      auto-offset-reset: earliest # Starts reading from the beginning if no offset exists
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
