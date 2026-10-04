@@ -1,4 +1,12 @@
 services:
+  kafdrop:
+    image: obsidiandynamics/kafdrop
+    ports:
+      - "9000:9000"
+    depends_on:
+      - kafka
+    environment:
+      KAFKA_BROKERCONNECT: kafka:29092
   kafka:
     image: docker.io/apache/kafka:latest
     container_name: kafka
@@ -19,6 +27,8 @@ services:
       KAFKA_CONTROLLER_QUORUM_VOTERS: '1@kafka:9093'
       KAFKA_LOG_DIR: '/tmp/kraft-combined-logs'
       CLUSTER_ID: 'MkU3OEVBNTcwNTJENDM2Qk'
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAP_SERVERS: host.docker.internal:9092 
 
   db:
     image: pgvector/pgvector:pg17
