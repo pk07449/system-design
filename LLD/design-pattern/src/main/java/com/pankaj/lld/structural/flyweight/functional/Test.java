@@ -1,4 +1,4 @@
-package com.pankaj.lld.structural.functional;
+package com.pankaj.lld.structural.flyweight.functional;
 
 import java.util.Map;
 
